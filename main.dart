@@ -1,9 +1,13 @@
-void main(List<String> args) {
-  DelimetersCalculator calculate = DelimetersCalculator();
+import 'dart:math' as Math;
 
-  print(calculate.nod(72, 21));
-  print(calculate.nok([9, 12, 56, 89]));
-  print(calculate.numberByPrimeFactors(52, []));
+void main(List<String> args) {
+  // DelimetersCalculator calculate = DelimetersCalculator();
+  WorkingWithConversion conversion = WorkingWithConversion();
+
+  // print(calculate.nod(72, 21));
+  // print(calculate.nok([9, 12, 56, 89]));
+  // print(calculate.numberByPrimeFactors(52, []));
+  print(conversion.decimalToBinary(810, []));
 }
 
 class DelimetersCalculator {
@@ -28,5 +32,26 @@ class DelimetersCalculator {
     }
 
     return arr;
+  }
+}
+
+class WorkingWithConversion {
+  List<int> decimalToBinary(int number, List<int> array) {
+    while (number != 0) {
+      array.add((number / 2) % 1 == 0 ? 0 : 1);
+
+      return decimalToBinary(number ~/ 2, array);
+    }
+
+    binaryToDecimal(array, 0);
+    return array;
+  }
+
+  int binaryToDecimal(List<int> array, int num) {
+    for (int i = 0; i < array.length; i++) {
+      num += (Math.pow(2, i)).toInt() * array[i];
+    }
+    print(num);
+    return num;
   }
 }
