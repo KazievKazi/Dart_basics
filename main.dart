@@ -3,7 +3,8 @@ import 'dart:math' as Math;
 void main(List<String> args) {
   // DelimetersCalculator calculate = DelimetersCalculator();
   // WorkingWithConversion conversion = WorkingWithConversion();
-  WorkingWithString checkString = WorkingWithString();
+  // WorkingWithString checkString = WorkingWithString();
+  Point checkString = Point();
 
   // print(calculate.nod(72, 21));
   // print(calculate.nok([9, 12, 56, 89]));
@@ -11,8 +12,8 @@ void main(List<String> args) {
   // print(conversion.decimalToBinary(810, []));
   // print(checkString.stringToNum('one 2 three 4 five 6 seven 8 nine 10', []));
   // print(checkString.collectionToMap( ['Red', 'Blue', 'Orange', 'Blue', 'Orange', 'Orange', 'Red', 'Blue'], {}));
-  print(checkString
-      .stringToList(['one', 'two', 'three', 'cat', 'dog', 'zero', 'zero'], []));
+  // print(checkString.stringToList(['one', 'two', 'three', 'cat', 'dog', 'zero', 'zero'], []));
+  print(checkString.distanceTo(1, 3, 5));
 }
 
 class DelimetersCalculator {
