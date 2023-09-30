@@ -113,3 +113,20 @@ class WorkingWithString {
     return array.toSet().toList();
   }
 }
+
+class Point {
+  final x = 0;
+  final y = 0;
+  final z = 0;
+
+  double distanceTo(int x, int y, int z) {
+    // print((x - this.x) ^ 2);
+    // print((y - this.y) ^ 2);
+    // print((z - this.z) ^ 2);
+    // print(((x - this.x) ^ 2) + ((y - this.y) ^ 2) + ((z - this.z) ^ 2));
+
+    return Math.sqrt(((x - this.x) ^ 2) + ((y - this.y) ^ 2) + ((z - this.z) ^ 2));
+  }
+
+  //  d = √((x2 — x1)^2 + (y2 — y1)^2 + (z2 — z1)^2)
+}
