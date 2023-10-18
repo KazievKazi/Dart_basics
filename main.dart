@@ -4,7 +4,7 @@ void main(List<String> args) {
   // DelimetersCalculator calculate = DelimetersCalculator();
   // WorkingWithConversion conversion = WorkingWithConversion();
   // WorkingWithString checkString = WorkingWithString();
-  Point checkString = Point();
+  // Point checkString = Point();
 
   // print(calculate.nod(72, 21));
   // print(calculate.nok([9, 12, 56, 89]));
@@ -13,7 +13,8 @@ void main(List<String> args) {
   // print(checkString.stringToNum('one 2 three 4 five 6 seven 8 nine 10', []));
   // print(checkString.collectionToMap( ['Red', 'Blue', 'Orange', 'Blue', 'Orange', 'Orange', 'Red', 'Blue'], {}));
   // print(checkString.stringToList(['one', 'two', 'three', 'cat', 'dog', 'zero', 'zero'], []));
-  print(checkString.distanceTo(1, 3, 5));
+  // print(checkString.distanceTo(1, 3, 5));
+  // print(calculateRoot(1).root(12, 23));
 }
 
 class DelimetersCalculator {
@@ -126,8 +127,28 @@ class Point {
     // print((z - this.z) ^ 2);
     // print(((x - this.x) ^ 2) + ((y - this.y) ^ 2) + ((z - this.z) ^ 2));
 
-    return Math.sqrt(((x - this.x) ^ 2) + ((y - this.y) ^ 2) + ((z - this.z) ^ 2));
+    return Math.sqrt(
+        ((x - this.x) ^ 2) + ((y - this.y) ^ 2) + ((z - this.z) ^ 2));
   }
 
   //  d = √((x2 — x1)^2 + (y2 — y1)^2 + (z2 — z1)^2)
+}
+
+extension calculateRoot on num {
+  num root(double val, int power) {
+    double x = 1;
+    for (int i = 0; i < 1000; i++) {
+      if (x ==
+          (x = 1.0 /
+              power *
+              (((power - 1) * x) + (val / Math.pow(x, power - 1))))) {
+        break;
+      }
+    }
+    return x;
+  }
+}
+
+class User {
+  
 }
