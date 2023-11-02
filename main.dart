@@ -5,6 +5,8 @@ void main(List<String> args) {
   // WorkingWithConversion conversion = WorkingWithConversion();
   // WorkingWithString checkString = WorkingWithString();
   // Point checkString = Point();
+  UserManager user = UserManager();
+  // AdminUser userAdm = AdminUser();
 
   // print(calculate.nod(72, 21));
   // print(calculate.nok([9, 12, 56, 89]));
@@ -15,6 +17,9 @@ void main(List<String> args) {
   // print(checkString.stringToList(['one', 'two', 'three', 'cat', 'dog', 'zero', 'zero'], []));
   // print(checkString.distanceTo(1, 3, 5));
   // print(calculateRoot(1).root(12, 23));
+  user.addUser(new AdminUser('admin@mail.ru'));
+  user.addUser(new GeneralUser('123@mail.ru'));
+  print(user.getAllMail());
 }
 
 class DelimetersCalculator {
@@ -149,6 +154,49 @@ extension calculateRoot on num {
   }
 }
 
+mixin cutMail {
+  String getMailSystem(mail) {
+    return mail.split('@')[1];
+  }
+}
+
 class User {
-  
+  String email = '';
+
+  User(String email) {
+    this.email = email;
+  }
+}
+
+class AdminUser extends User with cutMail {
+  AdminUser(email) : super(email);
+}
+
+class GeneralUser extends User {
+  GeneralUser(email) : super(email);
+}
+
+class UserManager<T extends User> {
+  List<T> listUser = [];
+
+  void addUser(T t) {
+    listUser.add(t);
+  }
+
+  void deleteUser(int index) {
+    listUser.removeAt(index);
+  }
+
+  List<String> getAllMail() {
+    List<String> result = [];
+    for (int i = 0; i < listUser.length; i++) {
+      if (listUser[i] is AdminUser) {
+        final adm = listUser[i] as AdminUser;
+        result.add(adm.getMailSystem(listUser[i].email));
+      } else {
+        result.add(listUser[i].email);
+      }
+    }
+    return result;
+  }
 }
